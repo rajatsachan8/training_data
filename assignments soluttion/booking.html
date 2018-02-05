@@ -1,0 +1,45 @@
+<!doctype html>
+<head>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+    
+div#content {
+  display: none;
+}
+.hello:hover + div#content {
+  display: block;
+}
+.main{
+    background-color:#bdbdbd;
+
+}
+
+input[type=text] {
+    border: 2px solid #757575;
+    border-radius: 4px;
+}
+input[type=date]{
+    border:2px solid #757575;
+    border-radius:4px;
+}
+</style>
+</head>
+<body>
+    
+
+<button class="hello">HOVER OVER ME</button>
+<div id="content">
+  <form>
+                 <div class="row">
+                <div class="col-sm-3"> <b>From: </b><input type="text"></div>
+                <div class="col-sm-2"><b>To: </b><input type="text" style="width:170px;"></div>
+                <div class="col-sm-3"><b>Departure Date: </b><input type="date"></div>
+                <div class="col-sm-4"><b>Arrival Date: </b><input type="date"></div>
+                 </div>
+                 <div class="row">
+                     <div class="col-sm-8"></div>
+                     <div class="col-sm-4"><input type="button" value="Book Now" ></div>
+             </form>
+</div>
+</body>
+</html>

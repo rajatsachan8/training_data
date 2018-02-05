@@ -1,0 +1,18 @@
+.headline{
+    text-align: center;
+    background-color: #607d8b;
+    padding: 20px;
+    color:#fafafa;
+}
+.form_tag{
+    text-align: center;
+}
+input{
+border-radius: 5px;
+}
+select{
+    border-radius: 5px;
+}
+body{
+    background: #f1f8e9;
+}

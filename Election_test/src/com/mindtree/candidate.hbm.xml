@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.mindtree.Candidates" table="candidates">
+  <id name="id" type="int">
+  	<column name="ID"/>
+  </id>
+  <property name="name" type="string">
+  	<column name="Name"/>
+  </property>
+  <property name="party" type="string">
+  	<column name="party"/>
+  </property>
+  <many-to-one name="consti" class="Constituency">
+  	<column name="con_id" not-null="true"/>
+  </many-to-one>
+</class>
+</hibernate-mapping>

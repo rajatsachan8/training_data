@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<style>
+
+table {
+    border-spacing: 15px;
+    border: 1px solid black;
+    border-color: blue;
+  vertical-align: top;
+}
+td,tr{
+   vertical-align: top; 
+}
+
+</style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function validateForm() {
+    
+    
+
+    var post=document.getElementById("Postal_Code").value;
+    if(post.length<6){
+        alert("Wrong Postal address");
+        return false;
+    }
+    if ( $.trim( $('#Postal_Code').val() ) == '' ){
+ alert('Postal input is blank');
+ return false;
+    }
+        
+    
+    var letters =/\[0-9]/g;
+ if(post.match(letters)){
+    alert("Right Postal Address");
+}
+else{
+    alert("Wrong Postal Address");
+    return false;
+
+}
+var x = document.getElementById("email").value;
+    //alert(x);
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+}
+   
+
+</script>
+<title>Web Page
+</title>
+ 
+</head>
+<center>
+<body>
+<form onsubmit="validateForm()" >
+   <table>
+          <tbody>
+          <tr><td><b>Title   :</b></td>        
+             <td><select id="title" >
+               <option value="Mr.">Mr.</option>
+               <option value="Mrs.">Mrs.</option>
+               <option value="Sir.">Sir.</option>
+               <option value="Miss">Miss</option>
+               <option value="Ms">Ms.</option>
+             </select></td></tr>
+
+  <tr><td><b> Name:</b></td><td><input  type="text" id="first_name" required></td></tr>
+
+    <br><tr><td><b>Last Name:</b></td><td> <input type="text" id="last_name" required></td></tr>
+
+    <tr><td><b>Address:</b></td><td><input type="text" id="address" required></td></tr>
+
+     <tr><td><b>City:</b></td><td><input type="text" id="city" required></td></tr>
+
+    <tr><td><b>State:</b></td><td> <input type="text" id="State" required></td></tr>
+
+    <tr><td><b>Postal Code:</b></td><td><input type="text" id="Postal_Code" maxlength="6" required></td></tr>
+
+    <tr><td><b>Country:</b> </td><td><input type="text" id="Country" required></td></tr>
+
+    <tr><td><b>Phone:</b></td><td> <input type="text" id="Phone" required></td></tr>
+
+    <tr><td><b>Fax:</b></td><td><input type="text" id="Fax" required></td></tr>
+
+    <tr><td><b>Email:</b></td><td> <input type="text" id="email" required></td></tr>
+
+    <tr><td><b>Payment by:</b></td> <td><input type="radio"  name="payment" value="Payp">PayPal</br>
+                                                               <input type="radio" name="payment" value="Manual:Pay On Arrival">Manual:Pay On Arrival </br>
+                          			              <input type="radio"  name="payment" value="Credit Card">Credit Card</td></tr>
+
+    <tr><td><b>Any Additional requests:</b></td><td><textarea rows="4" cols="50" id="additional_request" ></textarea></td></tr>
+    <tr><td></td><td><input type="checkbox" name="validate" value="yes" >I agree with <a href>Terms & Condition</a></td></tr>
+    <tr><td></td><td><button type="submit" >Confirm & Checkout</button></td></tr>
+</tbody></table>
+
+    
+    
+
+</form>
+</center>
+</ body>
+</html>

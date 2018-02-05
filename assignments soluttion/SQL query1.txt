@@ -1,0 +1,21 @@
+SQL engine query
+update marks SET mark=mark+5 where module_code="CM0003";
+
+update students SET surname=CONCAT('MIND',surname);
+
+delete from students where surname like "%n";
+
+select marks.mark from marks order by mark desc limit 3;
+
+select student_no,module_code,concat(mark,'%')
+from marks
+group by student_no,module_code;
+
+-----------------------------------------------------------
+assignment 4 sql engine
+select subcategory.subcategoryName, sum(product.salesamount) from subcategory left join product on subcategory.subcatid=product.subcatid 
+group by product.subcatid,subcategory.subcategoryName order by subcategory.subcatid;
+
+select p.playerName,q.countryName,p.runsMade from player_table as p
+join (select c.countryName,c.countryID,avg(t.runsMade) as r from player_table as t  join country_table as c
+on t.countryID=c.countryID group by c.countryID) as q on p.countryid=q.countryid and p.runsmade>r;

@@ -1,0 +1,16 @@
+Fruit market
+
+
+Login page:--
+
+if admin is logging in den 
+he must see what all the sales that was done.
+
+For user:-- It must have a signup page
+Only ppl who signed up can login to the market
+
+After login they can choose the products which are getting retrived from the db.
+
+After selecting we ll calculate the cost and along with his details everything is stored in the database.
+
+User will also have a option of checking out his sales by his name or his unique id.

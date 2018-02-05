@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<title>Create Playlist</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="music.js"></script>
+  <link rel="stylesheet" type="text/css" href="landing2.css">
+   <script type="text/javascript">
+   function updateplaylist(){
+
+       var playlist=document.getElementById("name").value;
+       if(playlist==""){
+           alert("Select atleast one song and enter name of playlist");
+           return false;
+       }
+         var allVals = [];
+         $('.check :checked').each(function() {
+       allVals.push($(this).val());
+     });
+     alert("Playlist Created");
+     
+   document.getElementById("place").innerHTML=playlist;
+
+   var newHTML = [];
+   for (var i = 0; i < allVals.length; i++) {
+    newHTML.push('<li>' +allVals[i] + '</li>');
+}
+$('#myDIV').html(newHTML.join(""));
+   }
+
+     function clearform(){
+         window.location.reload();
+     }
+      </script>
+
+</head>
+<body>
+  <div class="row">
+       <div class="col-sm-12 headline">
+           <h1>Create Playlist</h1></div>
+   </div>
+   <div class="row list">
+       <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <table id="down" class="check">
+                     <tr>
+                     <th>SONG LIST</th>
+                      </tr>
+             </table></div>
+        <div class="col-sm-3"></div>
+   </div>
+   <br>
+   <br>
+   <div class="row">
+       <div class="col-sm-3"></div>
+       <div class="col-sm-6"><h3>Create Playlist</h3>
+                         <input type="text" placeholder="Playlist Name" id="name"><br>
+                         <button type="button" class="btn btn-primary" onclick="updateplaylist()">Save</button>
+                         <button type="button" class="btn btn-danger float-right" onclick="clearform()">Cancel</button>
+
+       </div>
+       <div class="col-sm-3"></div>
+   </div>
+   <div class="row">
+       <div class="col-sm-4"></div>
+       <div class="col-sm-6"> <div id="hello"></div></div>
+   </div>
+   <div class="row">
+       <div class="col-sm-1"></div>
+       <div class="col-sm-5"><div id="place"></div>
+                              <ul>
+                             <div id="myDIV"></div>
+                             </ul>
+           </div>
+   </div>
+</body>
+</html>

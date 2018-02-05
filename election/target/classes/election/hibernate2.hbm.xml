@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="election.Candidates" table="Candidates">
+<id name="can_id" type="int" >
+    <column name="ID"/>
+    <generator class="native"/>
+    </id>
+<property column="Name" name="name" type="string" />
+<many-to-one name="constituencyId" class="election.Constituency" column="constituencyId" cascade="all" not-null="true" />
+<property column="Party" name="party" type="string"/>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+        input{
+              width:60%;
+        }
+        select{
+              width:60%;      
+        }
+        .class{
+              border: 1px solid black;
+              border-color: blue;
+        }
+        </style>
+<script type="text/javascript"> 
+function myFunction(){
+ var opt=document.getElementById("option").value;
+  var a = parseInt(document.getElementById("first").value);
+  var b = parseInt(document.getElementById("second").value);
+
+  if(document.getElementById("first").value=="" || document.getElementById("second").value==""){
+        alert("Empty Values");
+        return false;
+  }
+      if(opt==1){
+                    document.getElementById("result").innerHTML=a+b;
+              }
+      else if(opt==2){
+                     document.getElementById("result").innerHTML=a-b;
+                }
+      else if(opt==3){
+                     document.getElementById("result").innerHTML=a*b;
+               }
+      else if(opt==4){
+                   if(b==0)
+                       alert("Number cant be divide by zero");
+                      else 
+                      document.getElementById("result").innerHTML=a/b;
+              }
+              
+}
+
+</script>
+<title> Calculator</title>
+</head>
+
+<body>
+      
+      <div class="row">
+         
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"><h2> Calculator</h2></div>
+            <div class="col-sm-4"></div>
+           
+      </div>
+      <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><b>Enter the First Number</b></div>
+      <div class="col-sm-4"></div>
+      </div>
+      <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><input type="number" id="first"></div>
+      <div class="col-sm-4"></div>
+      </div><br>
+        <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><b>Enter the Second Number</b></div>
+      <div class="col-sm-4"></div>
+      </div>
+        <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><input type="number" id="second"></div>
+      <div class="col-sm-4"></div>
+      </div> <br>
+      <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><b>Select:</b><br>
+                        <select id="option">
+                        <option value=1>1.Add</option>
+                        <option value=2>2.Subtract</option>
+                        <option value=3>3.Multiply</option>
+                        <option value=4>4.Divide</option>
+                       </select></div>
+      <div class="col-sm-4"></div>
+      </div>
+      <br>
+        <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><button type="submit" id="compute" onclick="myFunction()">Compute</button> </br></div>
+      <div class="col-sm-4"></div>
+      </div>       
+
+       <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><p><h1> Result is: &nbsp;
+                              <span id="result"></span>
+                              </p></h1></div>
+      <div class="col-sm-4"></div>
+      </div> 
+    
+
+
+
+</body>
+</html>

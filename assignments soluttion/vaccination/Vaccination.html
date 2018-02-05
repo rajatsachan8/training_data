@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<title>Vaccination Schedule System</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="vacci_style.css">
+  <script>
+      document.getElementById("add").onclick = function () {
+        location.href ="Vacci_landing1.html";
+    };
+
+    document.getElementById("admin").onclick = function () {
+        location.href ="Vacci_landing2.html";
+    };
+
+      </script>
+</head>
+<body>
+     <div class="row">
+          <div class="col-sm-12 header">
+              <h1>Vaccination Schedule System</h1>
+            </div>
+          </div>
+<div class="row">
+    <div class="col-sm-12">
+              
+            </div>
+    </div>
+          <div class="row">
+              <div class="col-sm-6 add">
+                  <button class="button1" onclick="location.href ='Vacci_landing1.html';" style="vertical-align:middle" id="add"><span>Add a Child</span></button>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-6">
+                  <button class="button2" onclick="location.href ='Vacci_landing2.html';" style="vertical-align:middle" id="admin"><span>Administer Vaccination of Children</span></button>
+              </div>
+          </div>
+</body>
+</html>

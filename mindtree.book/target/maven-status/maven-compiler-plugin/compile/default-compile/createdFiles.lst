@@ -1,0 +1,4 @@
+com\mindree\BookDALTest.class
+com\mindtree\book\Book.class
+com\mindtree\book\BookDAL.class
+com\mindtree\book\test\BookDALTest.class

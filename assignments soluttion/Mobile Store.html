@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mobile Store</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="stylemobile.css">
+     <script src="jquery-mobile.js"></script>
+      <script type="text/javascript">
+      
+      function checkfilter(){
+          var samsung_check=document.getElementById("samsung_chk");
+          var apple_check=document.getElementById("apple_chk");
+          var xiaomi_check=document.getElementById("xiaomi_chk");
+          var oneplus_check=document.getElementById("oneplus_chk");
+          var htc_check=document.getElementById("htc_chk");
+          var nokia_check=document.getElementById("nokia_chk");
+          var price=$("input[name=price]:checked").val();
+          var operating_sys=$("input[name=os]:checked").val();
+            
+          if(samsung_check.checked){
+                 $('.Samsung').show();
+          }
+          else{
+                $('.Samsung').hide();     
+          }
+           if(apple_check.checked){
+               $('.apple').show();
+
+          }
+          else{
+               $('.apple').hide();
+          }
+          if(xiaomi_check.checked){
+              $('.xiaomi').show();
+          }
+          else{
+              $('.xiaomi').hide();
+          }
+          if(nokia_check.checked){
+              $('.nokia').show();
+          }
+          else{
+              $('.nokia').hide();
+          }
+          if(oneplus_check.checked){
+              $('.oneplus').show();
+          }
+          else{
+              $('.oneplus').hide();
+          }
+          if(htc_check.checked){
+              $('.htc').show();
+          }
+          else{
+               $('.htc').hide();
+          }
+          
+
+      }
+      function refreshPage(){
+    window.location.reload();
+} 
+      </script>
+</head>
+<body>
+
+<div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+              <h2>ACME Mobile Store</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   <br>
+   <div class="row" >
+   <div class="col-sm-2 sidenav">
+      <h2>Filters</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><h3>Brands</h3></li>
+            <div> <input type="checkbox" id="samsung_chk" value="samsung" onclick="checkfilter()" >Samsung</div>   
+            <div> <input type="checkbox" id="apple_chk" value="apple" onclick="checkfilter()">Apple</div>
+            <div> <input type="checkbox" id="xiaomi_chk" value="xiaomi" onclick="checkfilter()">Xiaomi</div>
+            <div> <input type="checkbox" id="htc_chk" value="htc" onclick="checkfilter()">HTC</div>
+            <div> <input type="checkbox" id="nokia_chk" value="nokia" onclick="checkfilter()">Nokia</div>
+            <div> <input type="checkbox" id="oneplus_chk" value="oneplus" onclick="checkfilter()">oneplus</div>
+       <div id="price"> <li><h3>Price</h3></li>
+            <div><input type="radio" value="5000" name="price" >Less than 5000</div>
+            <div><input type="radio" value="15000" name="price" >5000-15000</div>
+            <div><input type="radio" value="30000" name="price"  >15000-30000</div>
+            <div><input type="radio" value="45000" name="price" >30000-45000</div>
+            <div><input type="radio" value="60000" name="price">45000 and above</div></div>
+        <li><h3>Operating System</h3></li>
+            <div><input type="radio" value="ios" name="os">iOS</div>
+            <div><input type="radio" value="android" name="os">Android</div><br>
+        <button type="button" class="button button5" onClick="refreshPage()" >Clear Filters</button>
+      </ul><br>
+   </div>
+  
+
+  <div class="col-sm-10">
+       <div class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-primary Samsung 60000 android" id="samsung1">
+        <div class="panel-heading">Samsung S8</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\galaxys8_silver_all.png" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> Samsung<br>
+                                  <b>OS:</b> Android: Nougat<br>
+                                  <b>Storage:</b>64GB<br>
+                                  <b>Camera:</b>16MP<br>
+                                  <b>Price: </b> ₹56,999          
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="panel panel-primary apple 60000 ios" id="apple1">
+        <div class="panel-heading">Iphone 10</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\iphone10.png" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> Apple Inc.<br>
+                                  <b>OS:</b> iOS: 10<br>
+                                  <b>Storage:</b>64GB<br>
+                                  <b>Camera:</b>16MP<br>
+                                  <b>Price: </b> ₹80,000   </div>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="panel panel-primary nokia 45000 android " id="nokia1">
+        <div class="panel-heading">Nokia 8</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\Nokia-8.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> Nokia<br>
+                                  <b>OS:</b> Android: Marshmallo<br>
+                                  <b>Storage:</b>32GB<br>
+                                  <b>Camera:</b>13MP<br>
+                                  <b>Price: </b> ₹39,000   </div>
+      </div>
+    </div>
+   <div class="col-sm-3"> 
+      <div class="panel panel-primary oneplus 45000 android" id="oneplus1">
+        <div class="panel-heading">One PLus 5T</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\oneplus5t.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> One Plus<br>
+                                  <b>OS:</b> Android: Nougat<br>
+                                  <b>Storage:</b>128GB<br>
+                                  <b>Camera:</b>16MP<br>
+                                  <b>Price: </b> ₹37,999 </div>
+      </div>
+    </div>
+    </div>
+ <br>
+ <div class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-primary xiaomi 45000 android" id="xiaomi1">
+        <div class="panel-heading">Xiaomi Mix 2</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\xiaomi_mi_mix_2.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">S<b>Manufacturer:</b> Xiaomi<br>
+                                  <b>OS:</b> Android: MIUI<br>
+                                  <b>Storage:</b>128GB<br>
+                                  <b>Camera:</b>13MP<br>
+                                  <b>Price: </b> ₹35,999 </div>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="panel panel-primary apple 45000 ios" id="apple2">
+        <div class="panel-heading">Iphone 6S</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\iphone6s.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> Apple Inc.<br>
+                                  <b>OS:</b> iOS:10<br>
+                                  <b>Storage:</b>32GB<br>
+                                  <b>Camera:</b>12MP<br>
+                                  <b>Price: </b> ₹37,999</div>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="panel panel-primary Samsung 30000 android" id="samsung2" >
+        <div class="panel-heading">Samsung S7</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\samsungs7.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> Samsung<br>
+                                  <b>OS:</b> Android: Marshmallo<br>
+                                  <b>Storage:</b>32GB<br>
+                                  <b>Camera:</b>12MP<br>
+                                  <b>Price: </b> ₹29,499 </div>
+      </div>
+    </div>
+   <div class="col-sm-3"> 
+      <div class="panel panel-primary htc 30000 android" id="htc1">
+        <div class="panel-heading">HTC 10 </div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\htc10.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> HTC<br>
+                                  <b>OS:</b> Android: Marshmallo<br>
+                                  <b>Storage:</b>32GB<br>
+                                  <b>Camera:</b>12MP<br>
+                                  <b>Price: </b> ₹20,499 </div>
+      </div>
+    </div>
+    </div>
+        <div class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-primary Samsung 15000 android " id="samsung3" >
+        <div class="panel-heading">Samsung J5</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\samsungj5.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> Samsung<br>
+                                  <b>OS:</b> Android: Marshmallo<br>
+                                  <b>Storage:</b>16GB<br>
+                                  <b>Camera:</b>13MP<br>
+                                  <b>Price: </b> ₹11,999 </div>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="panel panel-primary nokia 15000 android" id="nokia2">
+        <div class="panel-heading">Nokia 6</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\nokia6.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> Nokia<br>
+                                  <b>OS:</b> Android: Nougat<br>
+                                  <b>Storage:</b>32GB<br>
+                                  <b>Camera:</b>16MP<br>
+                                  <b>Price: </b> ₹14,999 </div>
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <div class="panel panel-primary oneplus 30000 android" id="oneplus2">
+        <div class="panel-heading">One Plus 3</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\oneplus3.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> One Plus<br>
+                                  <b>OS:</b> Android: Marshmallo<br>
+                                  <b>Storage:</b>64GB<br>
+                                  <b>Camera:</b>16MP<br>
+                                  <b>Price: </b> ₹24,999 </div>
+      </div>
+    </div>
+   <div class="col-sm-3"> 
+      <div class="panel panel-primary xiaomi 30000 android" id="xiaomi2">
+        <div class="panel-heading">Xiaomi Mi 5</div>
+        <div class="panel-body"><img src="C:\Users\M1043153\Documents\assignments soluttion\pics\xiaomimi5.jpeg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><b>Manufacturer:</b> Xiaomi<br>
+                                  <b>OS:</b> Android: Marshmallo(MIUI)<br>
+                                  <b>Storage:</b>32GB<br>
+                                  <b>Camera:</b>16MP<br>
+                                  <b>Price: </b> ₹22,490 </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright©</p>  
+</footer>
+
+</body>
+</html>
+
+ 
+ 
+ 

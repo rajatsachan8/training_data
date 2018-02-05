@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+<script type="text/javascript">
+ //var update_blog_counter=0;
+var whole_blog=[];
+ function checkdate()
+  {
+    // regular expression to match required date format
+    re =  /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4}|[0-9]{2})$/;
+      if((document.getElementById("startdate1").value=="")||(document.getElementById("starttime1").value=="")){
+          alert("Value cant be blank");
+          return false;
+      }
+    if(document.getElementById("startdate1").value != '') {
+      if(regs = document.getElementById("startdate1").value.match(re)) {
+        // day value between 1 and 31
+        if(regs[1] < 1 || regs[1] > 31) {
+          alert("Invalid value for day: " + regs[1]);
+          document.getElementById("startdate1").focus();
+          return false;
+        }
+        // month value between 1 and 12
+        if(regs[2] < 1 || regs[2] > 12) {
+          alert("Invalid value for month: " + regs[2]);
+           document.getElementById("startdate1").focus();
+          return false;
+        }
+        // year value between 1902 and 2017
+        if(regs[3] < 1902 || regs[3] > (new Date()).getFullYear()) {
+          alert("Invalid value for year: " + regs[3] + " - must be between 1902 and " + (new Date()).getFullYear());
+          document.getElementById("startdate1").focus();
+          return false;
+        }
+      } else {
+        alert("Invalid date format: " + document.getElementById("startdate1").value);
+        document.getElementById("startdate1").focus();
+        return false;
+      }
+    }
+
+    // regular expression to match required time format
+    re = /^(\d{2}):(\d{2}):(\d{2})?$/;
+     
+    if(document.getElementById("starttime1").value != '') {
+      if(regs = document.getElementById("starttime1").value.match(re)) {
+        if(regs[3]) {
+          // 12-hour value between 1 and 12
+          if(regs[1] < 1 || regs[1] > 12) {
+            alert("Invalid value for hours: " + regs[1]);
+            document.getElementById("starttime1").focus();
+            return false;
+          }
+        } else {
+          // 24-hour value between 0 and 23
+          if(regs[1] > 23) {
+            alert("Invalid value for hours: " + regs[1]);
+            document.getElementById("starttime1").focus();
+            return false;
+          }
+        }
+        // minute value between 0 and 59
+        if(regs[2] > 59) {
+          alert("Invalid value for minutes: " + regs[2]);
+         document.getElementById("starttime1").focus();
+          return false;
+        }
+      } else {
+        alert("Invalid time format: " + document.getElementById("starttime1").value);
+        document.getElementById("starttime1").focus();
+        return false;
+      }
+    
+    }
+
+      alert("All input fields have been validated!");
+
+     var bertObjFromLS=[];
+     var time_key=[];
+     var bertJSONStringFromLS;
+     var value;
+     for (var i = 0; i < localStorage.length; i++) {
+               bertJSONStringFromLS = localStorage.key(i);
+               value=localStorage.getItem(bertJSONStringFromLS);
+                
+                 time_key.push(bertJSONStringFromLS);
+           bertObjFromLS.push(JSON.parse(value));               
+}
+     fLen = bertObjFromLS.length;
+      
+    var time;
+      var text="Blogs";
+        var correct_time;
+  //alert(time_key[0]+"rajat sachannnnnnnnnnnnnn");
+for (i = fLen-1; i >=0 ; i--) {
+         time=updated_at(time_key[i]);
+          correct_time=time_track(time);
+        //alert(time_arr[i] +"rajat sachan");
+          text+="</br>"+"----posted at: " +String(correct_time)+" ago.----"
+          text+="</br>";
+           text+=String(bertObjFromLS[i]);
+           text+="</br>";
+           
+           }
+
+document.getElementById("demo1").innerHTML=text;
+  
+  }
+
+ function blogupdate(){
+   var data=document.getElementById("textarea").value;
+   var author=document.getElementById("author").value;
+   var title=document.getElementById("title").value;
+
+   var time=new Date();
+   var milisec=time.getTime();
+   var blog_u="Title: "+title+"<br>"+"Author: "+author+"<br>"+String(data);
+    whole_blog.push(blog_u);
+    alert(keys[0]);
+    //alert(whole_blog.length);
+   var bertJSONString = JSON.stringify(whole_blog);
+   localStorage.setItem(milisec, bertJSONString);
+   alert("Blog successfully updated!");
+
+ }
+
+ function clearBlog(){
+   localStorage.clear();
+   whole_blog=[];
+ }
+
+ function updated_at(prev_time){
+     var time=new Date();
+     var this_time=time.getTime();
+     var rel_time=(this_time-prev_time)/1000;
+     //alert();
+    return rel_time;
+ }
+
+   function time_track(time){
+       
+       if(time<=60){
+        return "1 min";
+       }
+       if(time>60 && time<3600){
+           time=time/60;
+           time=Number.parseInt(time);
+           return (time+" min");
+       }
+       if(time>=3600 && time<86400){
+           time/=3600;
+          time=Number.parseInt(time);
+           return (time+" hour");
+       }
+       if(time>=86400 && time<2592000){
+           time/=86400;
+           time=Number.parseInt(time);
+           return (time+ " days");
+       }
+       if(time>=259200){
+           time=time/86400;
+               time=Number.parseInt(time);             
+                                //needs to be updated
+            return (time+"days");
+       }
+   }
+
+  
+
+</script>
+<title> Welcome to the Blog  </title>
+</head>
+<body>
+  <form>
+      <input type="text" placeholder="Title" id="title">
+      <input type="text" placeholder="Author" id="author">
+      </br>
+<textarea id="textarea" rows="2" placeholder="Write and update the blog" ></textarea>
+<button type"button" value="save" id="save" class="button12 button13" onclick="blogupdate()"> Update</button>  </form>
+
+ <form  >
+<label><h2>Enter Current Date/Time:</h2> <input type="text"  required placeholder="DD-MM-YYYY" name="startdate" id="startdate1"></label>
+<label><h2>Time:</h2> <input type="text" required  name="starttime" placeholder="HH:MM:SS" id="starttime1"></label>
+    <button type="button" class="button" style="vertical-align:middle" onclick=" checkdate()" ><span>Display Blog  </span></button> 
+        <button type="button" class="button12 button13" onclick="clearBlog()">Press to clear Blog</button>
+    <div id="demo1" class="text_style"></div>  
+
+  </form>
+
+</body>
+</html>

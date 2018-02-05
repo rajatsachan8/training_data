@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+<script type="text/javascript">
+ //var update_blog_counter=0;
+var whole_blog=[];
+ function checkdate()
+  {
+
+   
+    var date_time=document.getElementById("date_time").value;
+     if(date_time.length!=19){
+         alert("Wrong date and Time");
+         return false;
+     }
+     var sp1=date_time.charAt(2);
+     var sp2=date_time.charAt(5);
+     if(sp1!=sp2 || sp1!='-' || sp2!='-'){
+         alert("Invalid Separator in date");
+         return false;
+     }
+     sp1=date_time.charAt(13);
+     sp2=date_time.charAt(16);
+     if(sp1!=sp2 || sp1!=':' || sp2!=':'){
+         alert("Invalid Separator in Time");
+         return false;
+     }
+    var date=date_time.split(" ");
+    var sub_date=date[0].split("-");
+    if(sub_date[0]<1 || sub_date[0]>31){
+        alert("Invalid Date");
+        return false;
+    }
+    if(sub_date[1]<1 ||sub_date[1]>12){
+        alert("Invalid Month");
+        return false;
+    }
+    if(sub_date[2]!='2017'){
+     alert("Invalid Year");
+     return false;
+    }
+   var sub_time=date[1].split(":");
+         if(sub_time[0]<1 || sub_time[0]>24){
+             alert("Invalid Hours");
+             return false;
+         }
+     if(sub_time[1]<0 || sub_time>60){
+         alert("Invalid Minutes");
+         return false;
+     }    
+     if(sub_time[2]<0|| sub_time[2]>60){
+         alert("Invalid Seconds");
+         return false;
+     }
+
+     // alert("All input fields have been validated!");
+
+     var bertObjFromLS=[];
+     var time_key=[];
+     var bertJSONStringFromLS;
+     var value;
+     for (var i = 0; i < localStorage.length; i++) {
+               bertJSONStringFromLS = localStorage.key(i);
+               value=localStorage.getItem(bertJSONStringFromLS);
+                
+                 time_key.push(bertJSONStringFromLS);
+           bertObjFromLS.push(JSON.parse(value));               
+}
+     fLen = bertObjFromLS.length;
+      
+    var time;
+      var text="Konnect.mindtree.com/blogs";
+        var correct_time;
+  //alert(time_key[0]+"rajat sachannnnnnnnnnnnnn");
+for (i = fLen-1; i >=0 ; i--) {
+         time=updated_at(time_key[i]);
+          correct_time=time_track(time);
+        //alert(time_arr[i] +"rajat sachan");
+          text+="</br>"+"----posted at: " +String(correct_time)+" ago.----"
+          text+="</br></br>";
+           text+=String(bertObjFromLS[i]);
+           text+="</br>";
+           }
+
+document.getElementById("demo1").innerHTML=text;
+  
+  }
+
+ function blogupdate(){
+   var data=document.getElementById("textarea").value;
+   var author=document.getElementById("author").value;
+   var title=document.getElementById("title").value;
+
+   var time=new Date();
+   var milisec=time.getTime();
+   var blog_u="Title: "+title+"<br>"+"Author: "+author+"<br>"+String(data);
+    whole_blog.push(blog_u);
+    //alert(whole_blog.length);
+   var bertJSONString = JSON.stringify(whole_blog);
+   localStorage.setItem(milisec, bertJSONString);
+   alert("Blog successfully updated!");
+
+ }
+
+ function clearBlog(){
+   localStorage.clear();
+   whole_blog=[];
+ }
+
+ function updated_at(prev_time){
+     var time=new Date();
+     var this_time=time.getTime();
+     var rel_time=(this_time-prev_time)/1000;
+     //alert();
+    return rel_time;
+ }
+
+   function time_track(time){
+       
+       if(time<=60){
+        return "1 min";
+       }
+       if(time>60 && time<3600){
+           time=time/60;
+           time=Number.parseInt(time);
+           return (time+" min");
+       }
+       if(time>=3600 && time<86400){
+           time/=3600;
+          time=Number.parseInt(time);
+           return (time+" hour");
+       }
+       if(time>=86400 && time<2592000){
+           time/=86400;
+           time=Number.parseInt(time);
+           return (time+ " days");
+       }
+       if(time>=259200){
+           time=time/86400;
+               time=Number.parseInt(time);             
+                                //needs to be updated
+            return (time+"days");
+       }
+   }
+
+  
+
+</script>
+<title> Welcome to the Blog  </title>
+</head>
+<body>
+  <form>
+      <input type="text" placeholder="Title" id="title">
+      <input type="text" placeholder="Author" id="author">
+      </br>
+<textarea id="textarea" rows="2" placeholder="Write and update the blog" ></textarea>
+<button type"button" value="save" id="save" class="button12 button13" onclick="blogupdate()"> Update</button>  </form>
+
+ <form  >
+<label><h2>Enter Current Date/Time:</h2> <input type="text"  required placeholder="DD-MM-YYYY HH:MM:SS" name="date_time" id="date_time"></label>
+    <button type="button" class="button" style="vertical-align:middle" onclick="checkdate()" ><span>Display Blog  </span></button> 
+        <button type="button" class="button12 button13" onclick="clearBlog()">Press to clear Blog</button>
+    <div id="demo1" class="text_style"></div>  
+
+  </form>
+
+</body>
+</html>

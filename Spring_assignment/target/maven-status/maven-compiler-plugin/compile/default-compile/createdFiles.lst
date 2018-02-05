@@ -1,0 +1,4 @@
+com\mindtree\spring\DAO\DAO.class
+com\mindtree\spring\model\User.class
+com\mindtree\spring\controller\HomeController.class
+com\mindtree\spring\model\Add.class

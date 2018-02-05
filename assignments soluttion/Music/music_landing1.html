@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<title>Add a song</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="landing1.css">
+
+  <script type="text/javascript">
+function navigate(){
+    window.location.href ="file:///C:/Users/M1043153/Documents/assignments%20soluttion/Music/music.html";
+}
+function updatevalues(){
+    var title=document.getElementById("title").value;
+    if(title==""){
+        alert("Name could not be null");
+        return false;
+    }
+    var artist=document.getElementById("artist").value;
+    var location=document.getElementById("location").value;
+      var regex = /\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i;
+        if(!location.match(regex)){
+            alert("Invalid URL .. !");
+            window.location.href = "file:///C:/Users/M1043153/Documents/assignments%20soluttion/Music/music.html";
+            return false;
+        }
+    var album=document.getElementById("album").value;
+    var duration=document.getElementById("duration").value;
+    var tags=document.getElementById("tags").value;
+    var data=[title,artist,location,album,duration,tags];
+    var Jsonobj=JSON.stringify(data);
+    localStorage.setItem(title,Jsonobj);
+    alert("Song Saved Sucessfully!");
+    window.location.href = "file:///C:/Users/M1043153/Documents/assignments%20soluttion/Music/music.html";
+}
+
+  </script>
+
+</head>
+<body>
+    <div class="row">
+       <div class="col-sm-12 headline">
+           <h1>Add a Song</h1></div>
+   </div>
+   <br>
+   <div class="row">
+       <div class="col-sm-4">
+       </div>
+       <div class="col-sm-4">
+           <form >
+               <div class="form-group">
+                        <label for="title">Song Title/Name:</label>
+                        <input type="text" class="form-control" id="title"  required>
+                   </div>
+                   <div class="form-group">
+                         <label for="artist">Artist (s):</label>
+                         <input type="text" class="form-control" id="artist"  >
+                     </div>
+                 <div class="form-group">
+            <label for="location">Location:</label>
+                    <input type="text" class="form-control" id="location" required>
+                      </div>    
+            <div class="form-group">
+                        <label for="album">Album:</label>
+                        <input type="text" class="form-control" id="album" >
+                   </div>
+                   <div class="form-group">
+                        <label for="duration">Duration:</label>
+                        <input type="time" class="form-control" id="duration" >
+                   </div>
+                  <div class="form-group">
+                        <label for="tags">Tags:</label>
+                        <input type="text" class="form-control" id="tags" >
+                   </div>   
+                       <div class="row">
+                <div class="col-sm-4"></div>
+               <div class="col-sm-2 save">
+                  <button type="submit" class="btn btn-primary" onclick="updatevalues()" >Save</button>
+               </div>
+                <div class="col-sm-1"></div>
+               <div class="col-sm-3 cancel">
+                   <button type="button" class="btn btn-danger" onclick="navigate()">Cancel</button>
+               </div>
+                <div class="col-sm-2"></div>
+        </div> 
+           </form>
+
+       </div>
+   </div>
+</body>
+</html>

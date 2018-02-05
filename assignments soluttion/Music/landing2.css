@@ -1,0 +1,35 @@
+.headline{
+      text-align: center;
+    background-color: #ad1457;
+    padding: 20px;
+    color:#fafafa;   
+      }
+   body{
+       background-color: #fafafa;
+   }
+   #down{
+      text-align: left;
+      text-transform: capitalize;
+   }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #fce4ec;}
+#name{
+    width: 50%;
+    background-color: #e1bee7;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

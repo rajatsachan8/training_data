@@ -1,0 +1,10 @@
+ .headline{
+      text-align: center;
+    background-color: #00897b;
+    padding: 20px;
+    color:#fafafa;   
+      }
+     body{
+         background-image: url("black.jpg");
+     }
+    
